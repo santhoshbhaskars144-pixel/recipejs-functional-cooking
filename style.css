@@ -31,6 +31,59 @@ header p {
     opacity: 0.9;
 }
 
+/* ============================================
+   SEARCH BAR STYLING
+   ============================================ */
+
+.search-bar {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    align-items: center;
+}
+
+.search-input {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-input:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.clear-search-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.clear-search-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
 /* Main Container */
 main {
     max-width: 1200px;
@@ -38,7 +91,24 @@ main {
     padding: 0 1rem;
 }
 
-/* Recipe Container */
+/* Recipe Counter Section */
+.recipe-counter-section {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 0;
+    background-color: rgba(102, 126, 234, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+#recipe-counter {
+    font-size: 1rem;
+    color: #667eea;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Recipe Container - Flexbox Grid */
 #recipe-container {
     display: flex;
     flex-wrap: wrap;
@@ -101,4 +171,311 @@ main {
 .difficulty.hard {
     background-color: #f8d7da;
     color: #721c24;
+}
+
+/* Control Section - Buttons */
+.controls-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.filter-buttons,
+.sort-buttons {
+    margin-bottom: 1.5rem;
+}
+
+.filter-buttons:last-child,
+.sort-buttons:last-child {
+    margin-bottom: 0;
+}
+
+.filter-buttons h3,
+.sort-buttons h3 {
+    color: #667eea;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+/* Button Styles */
+.filter-btn,
+.sort-btn {
+    padding: 0.75rem 1.5rem;
+    margin-right: 0.75rem;
+    margin-bottom: 0.75rem;
+    border: 2px solid #ddd;
+    background-color: white;
+    color: #333;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.sort-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.2);
+}
+
+.filter-btn.active,
+.sort-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+}
+
+.filter-btn.active:hover,
+.sort-btn.active:hover {
+    box-shadow: 0 6px 12px rgba(102, 126, 234, 0.6);
+}
+
+/* ============================================
+   RECIPE ACTIONS & TOGGLE BUTTONS
+   ============================================ */
+
+.recipe-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.favorite-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: transparent;
+    color: #667eea;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.favorite-btn:hover {
+    background-color: rgba(102, 126, 234, 0.1);
+    transform: scale(1.1);
+}
+
+.favorite-btn.favorited {
+    color: #e74c3c;
+    text-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+}
+
+.favorite-btn.favorited:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+.toggle-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #667eea;
+    background-color: transparent;
+    color: #667eea;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    flex-grow: 1;
+    min-width: 120px;
+}
+
+.toggle-btn:hover {
+    background-color: #667eea;
+    color: white;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* ============================================
+   EXPANDABLE SECTIONS (STEPS & INGREDIENTS)
+   ============================================ */
+
+.steps-container,
+.ingredients-container {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-left: 4px solid #667eea;
+    border-radius: 4px;
+    animation: slideDown 0.3s ease;
+}
+
+.steps-container.visible,
+.ingredients-container.visible {
+    display: block;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+    }
+    to {
+        opacity: 1;
+        max-height: 1000px;
+    }
+}
+
+.steps-container h4,
+.ingredients-container h4 {
+    color: #667eea;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+/* ============================================
+   STEPS LIST STYLING
+   ============================================ */
+
+.steps-list {
+    list-style: none;
+    padding: 0;
+}
+
+.step-item {
+    margin-bottom: 0.75rem;
+    color: #333;
+    line-height: 1.5;
+    padding-left: 1.5rem;
+}
+
+.step-item strong {
+    color: #667eea;
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+/* Nested step indentation */
+.step-level-0 {
+    padding-left: 0;
+    font-weight: 500;
+}
+
+.step-level-1 {
+    padding-left: 2rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.step-level-2 {
+    padding-left: 3rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.step-level-3 {
+    padding-left: 4rem;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* Substeps list */
+.substeps-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem;
+    border-left: 2px solid #ddd;
+    padding-left: 1rem;
+}
+
+.substeps-list .step-item {
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   INGREDIENTS LIST STYLING
+   ============================================ */
+
+.ingredients-list {
+    list-style: none;
+    padding: 0;
+}
+
+.ingredients-list li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #333;
+}
+
+.ingredients-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    .search-input {
+        max-width: 100%;
+    }
+
+    .clear-search-btn {
+        width: 100%;
+    }
+
+    .recipe-actions {
+        flex-direction: column;
+    }
+
+    .toggle-btn {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .favorite-btn {
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .step-level-1 {
+        padding-left: 1.5rem;
+    }
+
+    .step-level-2 {
+        padding-left: 2rem;
+    }
+
+    .step-level-3 {
+        padding-left: 2.5rem;
+    }
+
+    #recipe-counter {
+        font-size: 0.9rem;
+    }
+
+    .recipe-card {
+        width: 100%;
+        max-width: 400px;
+    }
 }
